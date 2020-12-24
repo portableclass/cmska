@@ -9,7 +9,7 @@
             "format": "expanded",
             "autoprefix": "last 5 versions",
             "extensionName": ".css",
-            "savePath": "css"
+            "savePath": "styles"
         }
     ]
 
