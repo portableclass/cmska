@@ -1,5 +1,9 @@
 @import "colors";
 
+/* zeroing */
+
+/* end zeroing */
+
 * {
   padding: 0;
   margin: 0;
@@ -111,6 +115,16 @@ header {
       font-size: 16px;
       line-height: 30px;
       letter-spacing: 0.5px;
+      &.time-publication {
+        display: flex;
+        margin-top: 25px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.5px;
+        color: $grey;
+      }
     }
   }
 }
@@ -145,7 +159,7 @@ header {
       margin: 12px 0 8px 0;
       font-size: 24px;
       line-height: 34px;
-      letter-spacing: 1px;
+      letter-spacing: 0/9px;
     }
   }
 }
@@ -160,38 +174,34 @@ header {
 .article:nth-last-child(2):first-child ~ .article {
   width: 50%;
 }
-.time-publication {
-  margin-top: 25px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.5px;
-  color: $grey;
-}
 .more-info {
   display: flex;
-  font-style: normal;
-  font-size: 14px;
-  line-height: 22px;
-  h1 {
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #5a606c;
-  }
-  p {
-    margin-top: 38px;
-    font-weight: normal;
-    color: #59606d;
-  }
-  p:hover {
-    cursor: pointer;
-    color: $text-color;
+  .partition {
+    h1 {
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #5a606c;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 22px;
+    }
+    p {
+      margin-top: 24px;
+      font-weight: normal;
+      color: #59606d;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 22px;
+    }
+    p:hover {
+      cursor: pointer;
+      color: $text-color;
+    }
   }
 }
 .side-links {
-  width: 65%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
 }
@@ -199,6 +209,9 @@ header {
   float: right;
   color: #5a606c;
   margin-bottom: 32px;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 22px;
 }
 
 @import "media";
