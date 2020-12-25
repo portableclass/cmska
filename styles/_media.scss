@@ -1,63 +1,75 @@
 @media (max-width: 1280px) {
-    body {
-        background-color: grey;
+  body {
+    background-color: grey;
+  }
+  .article:only-child {
+    img {
+      width: 55%;
+      margin-right: 32px;
     }
-    .article:only-child {
-        img {
-            width: 55%;
-            margin-right: 32px;
-        }
-        .content-text {
-            width: 40%;
-        }
+    .content-text {
+      width: 40%;
     }
-    .article:not(:only-of-type) img {
-        margin-bottom: 20px;
-    }
-    .time-publication {
-        margin-top: 12px;
-    }
-    .side-links {
-        width: 100%;
-    }
-    .copyright {
-        margin-top: 40px;
-    }
+  }
+  .article:not(:only-of-type) img {
+    margin-bottom: 20px;
+  }
+  .time-publication {
+    margin-top: 12px;
+  }
+  .side-links {
+    width: 100%;
+  }
+  .copyright {
+    margin-top: 40px;
+  }
 }
 @media (max-width: 1024px) {
-    body {
-        background-color: rgb(162, 162, 250);
+  body {
+    background-color: #fff;
+    width: 100%;
+  }
+  header {
+    position: relative;
+  }
+  .menu-icon {
+    display: flex;
+  }
+  .nav-header {
+    display: none;
+  }
+  .article:only-child {
+    margin-top: 32px;
+    flex-direction: column;
+    img {
+      width: 100%;
+      margin-right: 0;
     }
-    .article:only-child {
-        margin-top: 32px;
-        flex-direction: column;
-        img {
-            width: 100%;
-            margin-right: 0;
-        }
-        .content-text {
-            margin-top: 16px;
-            width: 100%;
-        }
+    .content-text {
+      margin-top: 16px;
+      width: 100%;
     }
-    .menu-icon {
-        display: flex;
-    }
-    .nav-header {
-        div {
-            margin-right: 30px;
-            &:hover {
-                color: #fff;
-            }
-            &:not(.menu-icon) {
-                display: none;
-            }
-        }
-    }
-}
-@media (max-width: 768px) {
-
-}
-@media (max-width: 480px) {
-
+  }
+  .content-block {
+    display: flex;
+    flex-direction: column;
+    border: none;
+  }
+  .article:nth-last-child(3):first-child,
+  .article:nth-last-child(3):first-child ~ .article {
+    width: 100%;
+  }
+  .article:nth-last-child(2):first-child,
+  .article:nth-last-child(2):first-child ~ .article {
+    width: 100%;
+  }
+  .article {
+    border: 1px solid $grey;
+    border-top: none;
+    margin-bottom: 32px;
+    padding-bottom: 15px;
+  }
+  .content-text {
+    padding-left: 24px;
+  }
 }

@@ -51,16 +51,17 @@ header {
   line-height: 20px;
   letter-spacing: 0.8px;
   background-color: #FAA120;
-  padding: 15px 32px;
+  padding: 15px 33px;
   color: #fff;
-  border-radius: 25px;
+  margin-top: 7px;
   -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
           filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .menu-icon img {
   margin-left: 10px;
-  width: 25px;
+  width: 22px;
+  height: 20px;
   -webkit-filter: invert(100%);
           filter: invert(100%);
 }
@@ -291,7 +292,19 @@ header {
 
 @media (max-width: 1024px) {
   body {
-    background-color: #a2a2fa;
+    background-color: #fff;
+    width: 100%;
+  }
+  header {
+    position: relative;
+  }
+  .menu-icon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .nav-header {
+    display: none;
   }
   .article:only-child {
     margin-top: 32px;
@@ -308,18 +321,31 @@ header {
     margin-top: 16px;
     width: 100%;
   }
-  .menu-icon {
+  .content-block {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border: none;
   }
-  .nav-header div {
-    margin-right: 30px;
+  .article:nth-last-child(3):first-child,
+  .article:nth-last-child(3):first-child ~ .article {
+    width: 100%;
   }
-  .nav-header div:hover {
-    color: #fff;
+  .article:nth-last-child(2):first-child,
+  .article:nth-last-child(2):first-child ~ .article {
+    width: 100%;
   }
-  .nav-header div:not(.menu-icon) {
-    display: none;
+  .article {
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    border-top: none;
+    margin-bottom: 32px;
+    padding-bottom: 15px;
+  }
+  .content-text {
+    padding-left: 24px;
   }
 }
