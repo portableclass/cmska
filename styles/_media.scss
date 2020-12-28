@@ -29,10 +29,10 @@
   }
 }
 @media (max-width: 1024px) {
-  .menu-icon {
+  .menu__link {
     display: flex;
   }
-  .nav-header {
+  .sub-menu__list {
     display: none;
   }
   .content-block {
@@ -115,11 +115,17 @@
     font-size: 38px;
     line-height: 50px;
   }
-  .menu-icon {
+  .menu__link {
     padding: 15px 20px;
     img {
       width: 18px;
     }
+  }
+  .sub-menu__list__active {
+    min-width: 180px;
+  }
+  .sub-menu__list__active li:last-child {
+    width: 114.27px;
   }
   .article {
     p {

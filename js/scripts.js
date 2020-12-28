@@ -2,55 +2,68 @@ HTMLCollection.prototype.addEventListener = function() {
     for(var i = 0; i < this.length; i++) {
         Element.prototype.addEventListener.apply(this[i], Array.prototype.slice.call(arguments));
     }
-};   
-document.getElementsByClassName('menu-icon').addEventListener('mouseover', () => {
-    let dropArrow = document.getElementsByClassName('drop-arrow')[0];
-    dropArrow.style.cssText = `
-    transform:rotate(180deg);
-    transition:1s;
-    `;
-    let burger = document.getElementsByClassName('nav-header')[0];
-    burger.style.cssText = `
-        display:flex;
-        position: absolute;
-        right:0px;
-        top:105px;
-        margin-right:0;
-        flex-direction: column;
-        background-color: #ffff;
-        justify-content:center;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-        border:1px solid rgba(0, 0, 0, 0.24);
-        border-top:none;
+};
 
-    `;
-    let navItem = document.getElementsByClassName('nav-item');
-    for (let i = 0; i < navItem.length; i++){
-        navItem[i].style.cssText = `
-        margin-bottom:10px;
-        margin-right:0;
-        font-weight: 600;
-        padding:0 44px;
-        padding-left:43px;
-        `;
+let menuList = document.getElementsByClassName('menu__list')[0];
+let menuLink = document.getElementsByClassName('menu__link')[0];
+let dropArrow = document.getElementsByClassName('drop-arrow')[0];
+let subMenuList = document.getElementsByClassName('sub-menu__list')[0];
+let SML = document.getElementsByClassName('sub-menu__link');
+
+const toggleMenu = () => {
+    menuList.classList.toggle("menu__list__active");
+    menuLink.classList.toggle("menu__link__active");
+    subMenuList.classList.toggle("sub-menu__list__active");
+    for (let i = 0; i < SML.length; i++){
+        SML[i].classList.toggle("sub-menu__link__active");
     };
-    let btn = document.getElementsByTagName('button')[0]
-    btn.style.cssText = `
-        background: none;
-        padding:0;
-        color:#1D1F24;
-        filter:none;
-    `;
+}
+
+const transformArrow = () => { 
+    let dropArrow_is_active = menuLink.classList.contains('menu__link__active');
+    let arrowDegTrue, arrowDegFalse;
+
+    if ((window.innerWidth || document.documentElement.clientWidth) > 1024) {
+        arrowDegTrue = 180;
+        arrowDegFalse = 0;
+    } else {
+        arrowDegTrue = 0;
+        arrowDegFalse = 180;
+    }
+
+    if (dropArrow_is_active) {
+        dropArrow.style.cssText = `transform: rotate(${arrowDegTrue}deg); transition: 1s;`;
+    } else {
+        dropArrow.style.cssText = `transform: rotate(${arrowDegFalse}deg); transition: 1s;`;
+    }
+}
+
+menuLink.addEventListener('click', e => {
+    e.stopPropagation();
+    transformArrow();
+    toggleMenu();
+});
+
+document.addEventListener('click', e => {
+    let target = e.target;
+    let its_menuLink = target == menuLink;
+    let menu_is_active = menuList.classList.contains('menu__list__active');
+    
+    if (!its_menuLink && menu_is_active) {
+        transformArrow();
+        toggleMenu();
+    }
+});
+
+window.addEventListener(`resize`, e => {
+    if ((window.innerWidth || document.documentElement.clientWidth) > 1024) {
+        transformArrow();
+        menuList.classList.remove("menu__list__active");
+        menuLink.classList.remove("menu__link__active");
+        subMenuList.classList.remove("sub-menu__list__active");
+        for (let i = 0; i < SML.length; i++){
+            SML[i].classList.remove("sub-menu__link__active");
+        };
+    }
+}, false);
   
-    //  ебанная не работающая функция, потому что forEach is not a function
-    // nav.forEach((navItem) => { navItem.style.cssText = `     margin-bottom:10px; `; });  
-});
-document.getElementsByClassName('menu-icon').addEventListener('mouseout', () => {
-    let dropArrow = document.getElementsByClassName('drop-arrow')[0];
-    dropArrow.style.cssText = `
-    transform:rotate(0deg);
-    transition:1s;
-    `;
-    let burger = document.getElementsByClassName('nav-header')[0];
-    burger.style.cssText = `display:none`;
-});
