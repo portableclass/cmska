@@ -1,0 +1,142 @@
+@media (max-width: 1280px) {
+  .article {
+    &:only-child {
+      img {
+        width: 55%;
+        margin-right: 32px;
+      }
+      .content-text {
+        width: 40%;
+        .time-publication {
+          margin-top: 12px;
+        }
+      }
+    }
+    &:not(:only-of-type) {
+      img {
+        margin-bottom: 20px;
+      }
+      .content-text .time-publication {
+        margin-top: 12px;
+      }
+    }
+  }
+  .side-links {
+    width: 100%;
+  }
+  .copyright {
+    margin-top: 40px;
+  }
+}
+@media (max-width: 1024px) {
+  .menu__link {
+    display: flex;
+  }
+  .sub-menu__list {
+    display: none;
+  }
+  .content-block {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .article {
+    border: 1px solid $grey;
+    border-top: none;
+    margin-bottom: 32px;
+    padding-bottom: 15px;
+    .content-text {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    &:only-child {
+      margin-top: 32px;
+      flex-direction: column;
+      img {
+        width: 100%;
+        margin-right: 0;
+      }
+      .content-text {
+        margin-top: 16px;
+        width: 100%;
+      }
+    }
+    &:not(:only-of-type) {
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+  .article:nth-last-child(3):first-child,
+  .article:nth-last-child(3):first-child ~ .article {
+    width: 100%;
+  }
+  .article:nth-last-child(2):first-child,
+  .article:nth-last-child(2):first-child ~ .article {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .more-info .partition p {
+    margin-top: 16px;
+  }
+  .partition {
+    margin-bottom: 32px;
+  }
+  .copyright {
+    margin-top: 0;
+  }
+}
+@media (max-width: 560px) {
+  .more-info .partition p {
+    margin-top: 8px;
+  }
+  .side-links {
+    flex-direction: column;
+  }
+  .partition {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .copyright {
+    float: unset;
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .wrapper-block {
+    width: 85%;
+  }
+}
+@media (max-width: 360px) {
+  .side-header {
+    font-size: 38px;
+    line-height: 50px;
+  }
+  .menu__link {
+    padding: 15px 20px;
+    img {
+      width: 18px;
+    }
+  }
+  .sub-menu__list__active {
+    min-width: 180px;
+  }
+  .sub-menu__list__active li:last-child {
+    width: 114.27px;
+  }
+  .article {
+    p {
+      font-size: 12px;
+      line-height: 25px;
+      letter-spacing: 0.2px;
+    }
+    &:only-child .content-text h1 {
+      font-size: 28px;
+      line-height: 36px;
+      margin-bottom: 8px;
+    }
+  }
+}
